@@ -1,4 +1,4 @@
-# Vmanage-A-Credential-Manager-Maker
+# Vmanage Student Database
 
 # VIT Student Management System - Java Application
 This project implements a Java application for managing student registrations at VIT University. It provides functionalities for administrators to:
