@@ -6,6 +6,9 @@
 
 The **Student Admission and Management System** is a Java-based, menu-driven application that streamlines the processes of student registration, admission, record maintenance, and reporting for university administrators. Designed as a learning and practical project, it simulates real-world admission workflows, emphasizing automation, accuracy, and user-friendliness in the command-line environment.
 
+> **Note:**  
+> The MySQL database for this project is intended to be set up and run locally on your machine. The database is not hosted online.
+
 ---
 
 ## 🎯 Key Features
@@ -19,6 +22,59 @@ The **Student Admission and Management System** is a Java-based, menu-driven app
 - **Admission Cancellation**: Delete student records with backup to a canceled students' table.
 - **Statistical Reporting**: Get total counts per branch and campus.
 - **Error Handling**: Input validation and informative prompts throughout.
+
+---
+
+## 🗃️ Database Schema (MySQL)
+
+This project requires a MySQL database with the following tables:
+
+### 1. `csestudents` (CSE Student Records)
+### 2. `ecestudents` (ECE Student Records)
+### 3. `Cancelled_Students` (Backup of Cancelled Admissions)
+
+**Each table has the same structure:**
+
+```sql
+CREATE TABLE csestudents (
+    RegNo VARCHAR(20) PRIMARY KEY,
+    CollegeID INT,
+    ApplicationNo VARCHAR(20),
+    Name VARCHAR(100),
+    Email VARCHAR(100),
+    Password VARCHAR(100),
+    PhoneNo VARCHAR(20),
+    ranks INT
+);
+
+CREATE TABLE ecestudents (
+    RegNo VARCHAR(20) PRIMARY KEY,
+    CollegeID INT,
+    ApplicationNo VARCHAR(20),
+    Name VARCHAR(100),
+    Email VARCHAR(100),
+    Password VARCHAR(100),
+    PhoneNo VARCHAR(20),
+    ranks INT
+);
+
+CREATE TABLE Cancelled_Students (
+    RegNo VARCHAR(20) PRIMARY KEY,
+    CollegeID INT,
+    ApplicationNo VARCHAR(20),
+    Name VARCHAR(100),
+    Email VARCHAR(100),
+    Password VARCHAR(100),
+    PhoneNo VARCHAR(20),
+    ranks INT
+);
+```
+
+> **To use this application:**
+>
+> 1. **Create a MySQL database** (e.g., `student_management`).
+> 2. **Create the three tables** above in your database (you can use phpMyAdmin, MySQL Workbench, or the MySQL CLI).
+> 3. **Update the database credentials** (username, password, database name) in the `DBconnect` class in your Java code to match your local setup.
 
 ---
 
@@ -37,29 +93,6 @@ The **Student Admission and Management System** is a Java-based, menu-driven app
 0. Exit
 -------------------------------------------------
 ```
-
----
-
-## 🏫 Supported Campuses & Branches
-
-- **Campuses**:  
-  - VIT Vellore
-  - VIT AP
-
-- **Branches**:  
-  - Computer Science and Engineering (CSE)
-  - Electronics and Communication Engineering (ECE)
-
----
-
-## 🗃️ Database Structure
-
-- `csestudents`: CSE student records.
-- `ecestudents`: ECE student records.
-- `Cancelled_Students`: Backup of canceled admissions.
-
-**Each record includes:**  
-Registration Number, College ID, Application Number, Name, Email, Password, Phone No, Rank
 
 ---
 
@@ -96,7 +129,7 @@ Registration Number, College ID, Application Number, Name, Email, Password, Phon
 
 ### **Prerequisites**
 - Java JDK 8 or above
-- MySQL Server
+- MySQL Server (running locally)
 - JDBC Driver for MySQL
 
 ### **Setup Instructions**
@@ -106,8 +139,9 @@ Registration Number, College ID, Application Number, Name, Email, Password, Phon
    cd student-admission-and-management-system
    ```
 2. **Configure the Database:**
-   - Create required tables in MySQL as per the schema above.
-   - Update DB credentials in `DBconnect` class.
+   - **Create your database** (e.g., `student_management`).
+   - **Create the tables** by running the SQL above.
+   - **Update DB credentials** in the `DBconnect` class to match your local MySQL setup.
 
 3. **Compile and Run:**
    - Open in any IDE or use terminal:
