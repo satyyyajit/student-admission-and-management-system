@@ -1,48 +1,85 @@
-# Vmanage Student Database
+# Student Admission and Management System
 
-# VIT Student Management System - Java Application
-This project implements a Java application for managing student registrations at VIT University. It provides functionalities for administrators to:
+This project is a Java-based application designed to manage student admissions and registration for VIT University campuses (VIT Vellore and VIT AP). It streamlines administrative tasks by providing a command-line interface for administrators to add, view, update, and delete student records, as well as generate statistics and maintain a backup of cancelled admissions.
 
-Add new students
-View student details
-Update student passwords
-Delete students (with backup)
-View the number of students enrolled in each branch (CSE and ECE)
-Features:
+## Features
 
-Connects to a MySQL database to store and retrieve student data.
-Implements a secure password generation and storage mechanism.
-Generates unique registration numbers based on department and college.
-Allows searching for students by registration number.
-Provides separate views for students from VIT Vellore and VIT AP campuses.
-Getting Started
+- **Student Registration:** Add new students with unique registration numbers and generate institutional email addresses.
+- **View Students:** List all registered students by branch (CSE/ECE) and campus, or view details for an individual student.
+- **Update Student Passwords:** Securely update passwords for existing students.
+- **Delete Students (with Backup):** Cancel admissions and move records to a backup table for audit/history.
+- **Statistics:** View the number of students enrolled per branch and campus.
+- **Search:** Find students by registration number.
+- **Admin Console:** Menu-driven command-line interface for managing all operations.
 
-# Prerequisites:
+## Technologies Used
 
-Java Development Kit (JDK) 8 or above
-MySQL database server
-A code editor or IDE (e.g., IntelliJ IDEA, Eclipse)
+- **Java** (JDK 8+)
+- **MySQL** (for persistent storage)
+- **JDBC** (for database connectivity)
 
-Running the Application:
+## Database Schema
 
-Open a terminal in the project directory.
-Compile and run the application using
-Admin Interface:
+- `csestudents`: Stores CSE student records.
+- `ecestudents`: Stores ECE student records.
+- `Cancelled_Students`: Stores backup of deleted/cancelled students.
 
-The application provides an admin interface accessible through the command line. You'll be prompted to enter details when adding new students.
+Each student record contains:
+- Registration Number
+- College ID
+- Application Number
+- Name
+- Email
+- Password
+- Phone Number
+- Rank
 
-# Database Schema:
+## Getting Started
 
-The application assumes a MySQL database with the following tables:
+### Prerequisites
 
-csestudents: Stores details of CSE students (Registration No, College ID, Application No, Name, Email, Password, Phone No, Rank)
-ecestudents: Stores details of ECE students (same schema as csestudents)
-Cancelled_Students (optional): Stores details of deleted students for backup purposes (same schema as csestudents)
-Further Development:
+- Java Development Kit (JDK) 8 or above
+- MySQL database server
+- A code editor or IDE (IntelliJ IDEA, Eclipse, etc.)
 
-This application serves as a basic foundation for student management. You can extend its functionalities by:
+### Setup Instructions
 
-Implementing a user interface (e.g., Swing, JavaFX)
-Adding functionalities for students (e.g., course registration, fee payment)
-Implementing role-based access control for different user types (admin, student)
-Enhancing error handling and logging
+1. **Clone the repository**
+   ```sh
+   git clone https://github.com/satyyyajit/student-admission-and-management-system.git
+   cd student-admission-and-management-system
+   ```
+
+2. **Configure the Database**
+   - Create a MySQL database and the required tables as described in the schema above.
+   - Update the database connection parameters in the `DBconnect` class if needed.
+
+3. **Build and Run the Application**
+   - Open the project in your preferred IDE.
+   - Compile and run `Main.java`.
+   - Follow the on-screen menu to perform administrative tasks.
+
+## Usage
+
+Run the application and use the menu to:
+- Add new students
+- View students by campus/branch
+- Update passwords
+- Cancel admissions (with backup)
+- View statistics
+
+## Further Development
+
+Potential improvements include:
+- Adding a graphical user interface (GUI) with JavaFX or Swing
+- Implementing role-based access (admin, student)
+- Adding features like fee payment, course registration, or notifications
+- Improving error handling and logging
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+**Repository:** [GitHub - satyyyajit/student-admission-and-management-system](https://github.com/satyyyajit/student-admission-and-management-system)
