@@ -65,7 +65,7 @@ Run the application and use the menu to:
 - Add new students
 - View students by campus/branch
 - Update passwords
-- Cancel admissions (with backup)
+- Cancel admissions
 - View statistics
 
 ## Further Development
