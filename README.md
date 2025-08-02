@@ -7,7 +7,7 @@ This project is a Java-based application designed to manage student admissions a
 - **Student Registration:** Add new students with unique registration numbers and generate institutional email addresses.
 - **View Students:** List all registered students by branch (CSE/ECE) and campus, or view details for an individual student.
 - **Update Student Passwords:** Securely update passwords for existing students.
-- **Delete Students (with Backup):** Cancel admissions and move records to a backup table for audit/history.
+- **Delete Students:** Cancel admissions.
 - **Statistics:** View the number of students enrolled per branch and campus.
 - **Search:** Find students by registration number.
 - **Admin Console:** Menu-driven command-line interface for managing all operations.
